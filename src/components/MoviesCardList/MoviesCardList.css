@@ -1,0 +1,60 @@
+.cards {
+  padding: 0 70px 80px;
+  margin: 0;
+}
+
+.cards__list {
+  display: grid;
+  gap: 30px 24px;
+  grid-template-columns: repeat(auto-fit, 364px);
+  justify-content: center;
+  margin: 0 auto 80px;
+  padding: 0;
+  width: 100%;
+}
+
+.cards__button {
+  all: unset;
+  display: block;
+  background-color: #F9F9F9;
+  border-radius: 6px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  height: 36px;
+  width: 100%;
+  text-align: center;
+  transition: opacity .3s ease-in-out;
+}
+
+.cards__button:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+@media screen and (max-width: 920px) {
+  .cards {
+    padding: 0 30px 80px;
+  }
+  .cards__list {
+    grid-template-columns: repeat(auto-fit, 339px);
+    gap: 36px 30px;
+  }
+}
+
+@media screen and (max-width: 767.5px) {
+  .cards__list {
+    grid-template-columns: repeat(auto-fit, 300px);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .cards {
+    padding: 0 10px 80px;
+  }
+
+  .cards__list {
+    row-gap: 16px;
+  }
+}
