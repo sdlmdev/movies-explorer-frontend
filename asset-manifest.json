@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/sdlmdev/movies-explorer-frontend/static/css/main.0155be6b.css",
+    "main.js": "/sdlmdev/movies-explorer-frontend/static/js/main.114dd4bc.js",
+    "static/media/Inter-Medium.woff": "/sdlmdev/movies-explorer-frontend/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Regular.woff": "/sdlmdev/movies-explorer-frontend/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2": "/sdlmdev/movies-explorer-frontend/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Regular.woff2": "/sdlmdev/movies-explorer-frontend/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/pic__COLOR_pic.png": "/sdlmdev/movies-explorer-frontend/static/media/pic__COLOR_pic.af07e4b2d6373d382877.png",
+    "static/media/student.png": "/sdlmdev/movies-explorer-frontend/static/media/student.0a596098f2eb4b454469.png",
+    "static/media/profile.svg": "/sdlmdev/movies-explorer-frontend/static/media/profile.8083e13a085985bea39243dd13da734f.svg",
+    "static/media/logo.svg": "/sdlmdev/movies-explorer-frontend/static/media/logo.4efad476e73dcaa52b35eae1476ce876.svg",
+    "index.html": "/sdlmdev/movies-explorer-frontend/index.html",
+    "static/media/disSaveBtn.svg": "/sdlmdev/movies-explorer-frontend/static/media/disSaveBtn.78377d0a6046af6777b8.svg",
+    "static/media/activeSaveBtn.svg": "/sdlmdev/movies-explorer-frontend/static/media/activeSaveBtn.ab2c9ec599c920bd11ff.svg",
+    "static/media/saveBtnDelsvg.svg": "/sdlmdev/movies-explorer-frontend/static/media/saveBtnDelsvg.5ba7eaafef688f311898.svg",
+    "static/media/linkImage.svg": "/sdlmdev/movies-explorer-frontend/static/media/linkImage.093d837f03fdca8fb146.svg",
+    "main.0155be6b.css.map": "/sdlmdev/movies-explorer-frontend/static/css/main.0155be6b.css.map",
+    "main.114dd4bc.js.map": "/sdlmdev/movies-explorer-frontend/static/js/main.114dd4bc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0155be6b.css",
+    "static/js/main.114dd4bc.js"
+  ]
+}
