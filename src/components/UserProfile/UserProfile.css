@@ -127,6 +127,14 @@
   opacity: .7;
 }
 
+.profile-form__input_type-error::placeholder {
+  color: #FF4062;
+}
+
+.profile-form__input_type-error:focus {
+  outline: 1px solid #FF4062;
+}
+
 @media screen and (max-width: 920px) {
   .profile-form {
     margin: 236px auto;

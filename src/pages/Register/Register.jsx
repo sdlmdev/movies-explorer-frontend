@@ -21,7 +21,7 @@ function Register() {
           <input
             id="name"
             type="text"
-            className="form__input"
+            className={`form__input ${errors.name ? 'form__input_type-error' : ''}`}
             name="name"
             minLength="2"
             maxLength="30"
@@ -29,7 +29,9 @@ function Register() {
             onChange={handleInputChange}
             placeholder="Виталий"
           />
-          <span className="form__input-error form__input-error_name">{errors.name}</span>
+          <span className="form__input-error form__input-error_name">
+            {errors.name}
+          </span>
         </label>
       </PageWithForm>
     </main>

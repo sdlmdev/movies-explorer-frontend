@@ -117,6 +117,14 @@
   padding-top: 5px;
 }
 
+.form__input_type-error::placeholder {
+  color: #FF4062;
+}
+
+.form__input_type-error:focus {
+  outline: 1px solid #FF4062;
+}
+
 @media screen and (max-width: 920px) {
   .form {
     margin-top: 232px;

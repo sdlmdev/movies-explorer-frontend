@@ -92,6 +92,12 @@
 
 .header__burger {
   display: none;
+  transition: opacity .3s ease-in-out;
+}
+
+.header__burger:hover {
+  cursor: pointer;
+  opacity: .7;
 }
 
 @media screen and (max-width: 920px) {

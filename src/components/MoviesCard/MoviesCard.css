@@ -41,6 +41,12 @@
   margin: 19px 0 0 26px;
   cursor: pointer;
   border-radius: 50%;
+  transition: opacity .3s ease-in-out;
+}
+
+.card__save-box_button:hover {
+  cursor: pointer;
+  opacity: .7;
 }
 
 .card__save-box_button-delete {

@@ -21,7 +21,7 @@ function UserProfile() {
             <input
               id="name"
               type="text"
-              className="profile-form__input"
+              className={`profile-form__input ${errors.name ? 'profile-form__input_type-error' : ''}`}
               name="name"
               required
               minLength="2"
@@ -37,7 +37,7 @@ function UserProfile() {
             <input
               id="email"
               type="text"
-              className="profile-form__input"
+              className={`profile-form__input ${errors.email ? 'profile-form__input_type-error' : ''}`}
               name="email"
               required
               placeholder="pochta@yandex.ru"

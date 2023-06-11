@@ -31,7 +31,7 @@ function PageWithForm({
             <input
               id="email"
               type="text"
-              className="form__input"
+              className={`form__input ${errors.email ? 'form__input_type-error' : ''}`}
               name="email"
               required
               placeholder="pochta@yandex.ru"
@@ -44,7 +44,7 @@ function PageWithForm({
             <input
               id="password"
               type="password"
-              className="form__input form__input_password"
+              className={`form__input form__input_password ${errors.password ? 'form__input_type-error' : ''}`}
               name="password"
               required
               placeholder="••••••••••••••"
