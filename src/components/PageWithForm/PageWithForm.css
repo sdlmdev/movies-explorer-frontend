@@ -54,7 +54,7 @@
   all: unset;
   max-width: 396px;
   width: 100%;
-  background: #000;
+  background-color: #000;
   border-radius: 3px;
   color: #FFF;
   padding: 0;
@@ -83,7 +83,7 @@
   text-align: center;
   text-decoration: none;
   margin: 0;
-  padding: 0;
+  padding: 0 2px 0 3px;
 }
 
 .form__redirect_active {
@@ -108,12 +108,12 @@
 }
 
 .form__input-error_login {
-  margin-bottom: 153px;
+  margin-bottom: 119px;
   padding-top: 5px;
 }
 
 .form__input-error_register {
-  margin-bottom: 64px;
+  margin-bottom: 31px;
   padding-top: 5px;
 }
 
@@ -123,6 +123,22 @@
 
 .form__input_type-error:focus {
   outline: 1px solid #FF4062;
+}
+
+.form__button_disabled {
+  opacity: .6;
+  pointer-events: none;
+}
+
+.form__input-error_submit {
+  height: 14px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  margin: 0 0 20px;
+  color: #FF004C;
 }
 
 @media screen and (max-width: 920px) {
@@ -159,7 +175,7 @@
   }
 
   .form__input-error_register {
-    margin-bottom: 153px;
+    margin-bottom: 118px;
   }
 
   .form__container {
@@ -168,15 +184,6 @@
   }
 
   .form__input-error_login {
-    margin-bottom: 241px;
-  }
-
-  .form__redirect {
-    padding-left: 3px;
-    padding-right: 1px;
-  }
-
-  .form__input-error_name {
-    font-size: 7px;
+    margin-bottom: 207px;
   }
 }

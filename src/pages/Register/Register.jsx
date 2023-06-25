@@ -1,10 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PageWithForm from '../../components/PageWithForm/PageWithForm';
-import useFormWithValidation from '../../hooks/useFormWithValidation';
 
-function Register() {
-  const { handleInputChange, errors } = useFormWithValidation();
-
+function Register({
+  createUser,
+  registrationStatus,
+  location,
+  isLoading,
+}) {
   return (
     <main>
       <PageWithForm
@@ -15,27 +18,24 @@ function Register() {
         linkText=" Войти"
         link="/signin"
         errorClass="form__input-error_register"
-      >
-        <label htmlFor="name" className="form__label">
-          Имя
-          <input
-            id="name"
-            type="text"
-            className={`form__input ${errors.name ? 'form__input_type-error' : ''}`}
-            name="name"
-            minLength="2"
-            maxLength="30"
-            required
-            onChange={handleInputChange}
-            placeholder="Виталий"
-          />
-          <span className="form__input-error form__input-error_name">
-            {errors.name}
-          </span>
-        </label>
-      </PageWithForm>
+        onSubmit={createUser}
+        registrationStatus={registrationStatus}
+        location={location}
+        isLoading={isLoading}
+      />
     </main>
   );
 }
+
+Register.propTypes = {
+  createUser: PropTypes.func.isRequired,
+  registrationStatus: PropTypes.string,
+  location: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+};
+
+Register.defaultProps = {
+  registrationStatus: '',
+};
 
 export default Register;

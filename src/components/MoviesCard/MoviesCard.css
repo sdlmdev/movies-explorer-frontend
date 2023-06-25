@@ -1,6 +1,7 @@
 .card {
   max-width: 364px;
   width: 100%;
+  height: 271px;
   position: relative;
   background: #FDFDFD;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
@@ -30,6 +31,9 @@
   width: 100%;
   margin: 0 0 9px;
   padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card__save-box_button {
@@ -63,7 +67,6 @@
   font-size: 11px;
   line-height: 13px;
   color: #A0A0A0;
-  max-width: 37px;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -72,11 +75,17 @@
 .card__image {
   max-width: 364px;
   width: 100%;
+  height: 203px;
+}
+
+.card__link {
+  width: 100%;
 }
 
 @media screen and (max-width: 920px) {
   .card {
     max-width: 339px;
+    height: 258px;
   }
 
   .card__text {
@@ -86,20 +95,28 @@
   .card__save-box_button {
     margin-left: 31px;
   }
+
+  .card__image {
+    height: 190px;
+  }
 }
 
 @media screen and (max-width: 767.5px) {
   .card__text {
     max-width: 210px;
   }
+
+  .card__image {
+    height: 168px;
+  }
+
+  .card {
+    height: 236px;
+  }
 }
 
 @media screen and (max-width: 360px) {
   .card__save-box_button {
     margin-left: 32px;
-  }
-
-  .card__image {
-    height: 168px;
   }
 }
