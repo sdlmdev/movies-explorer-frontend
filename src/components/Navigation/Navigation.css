@@ -39,6 +39,10 @@
     row-gap: 28px;
   }
 
+  .header-popup__items li:last-child {
+    margin-bottom: 25px;
+  }
+
   .header-popup__items_link {
     text-decoration: none;
     color: #000;
