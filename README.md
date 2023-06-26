@@ -5,3 +5,43 @@
 * [Репозиторий Api](https://github.com/sdlmdev/movies-explorer-api)
 * [Pull request](https://github.com/sdlmdev/movies-explorer-frontend/pull/2)
 * [Проект](https://sdlmdev.movies.nomoreparties.sbs)
+
+### Роуты
+<table>
+  <thead>
+    <tr>
+      <th>Роут</th>
+      <th>Описание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/</td>
+      <td>Отображается страница «О проекте»</td>
+    </tr>
+    <tr>
+      <td>/movies</td>
+      <td>Отображается страница «Фильмы»</td>
+    </tr>
+    <tr>
+      <td>/saved-movies</td>
+      <td>Отображается страница «Сохранённые фильмы»</td>
+    </tr>
+    <tr>
+      <td>/profile</td>
+      <td>Отображается страница с профилем пользователя</td>
+    </tr>
+    <tr>
+      <td>/signin</td>
+      <td>Отображается страница авторизации</td>
+    </tr>
+    <tr>
+      <td>/signup</td>
+      <td>Отображается страница регистрации</td>
+    </tr>
+    <tr>
+      <td>/*</td>
+      <td>Отображается страница не найдено</td>
+    </tr>
+  </tbody>
+</table>
