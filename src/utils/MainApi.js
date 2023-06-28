@@ -1,4 +1,4 @@
-const API_URL = 'https://api.sdlmdev.movies.nomoredomains.monster';
+import { API_URL } from './constants';
 
 export async function checkResponse(res) {
   if (res.ok) {

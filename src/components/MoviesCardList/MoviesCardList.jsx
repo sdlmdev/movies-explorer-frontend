@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader';
+import {
+  DEVICE_PARAMS,
+  NOT_FOUND_ERROR_MESSAGE,
+  REQUEST_ERROR_MESSAGE,
+} from '../../utils/constants';
 
 function MoviesCardList({
   isMovies,
@@ -22,37 +27,46 @@ function MoviesCardList({
 }) {
   const [cardLength, setCardLength] = useState(0);
   const [standartCardLength, setStandartCardLength] = useState({
-    desktop: 12,
-    tablet: 8,
-    mobile: 5,
+    desktop: DEVICE_PARAMS.desktop.movies.total,
+    tablet: DEVICE_PARAMS.tablet.movies.total,
+    mobile: DEVICE_PARAMS.mobile.movies.total,
   });
 
   const openMoreCards = () => {
-    if (windowSize.width > 1279) {
+    if (windowSize.width > DEVICE_PARAMS.desktop.width) {
       setStandartCardLength({
-        desktop: standartCardLength.desktop + 3,
-        tablet: standartCardLength.desktop + 3,
-        mobile: standartCardLength.desktop + 3,
+        desktop: standartCardLength.desktop
+        + DEVICE_PARAMS.desktop.movies.more,
+        tablet: standartCardLength.desktop
+        + DEVICE_PARAMS.desktop.movies.more,
+        mobile: standartCardLength.desktop
+        + DEVICE_PARAMS.desktop.movies.more,
       });
-    } else if (windowSize.width > 479) {
+    } else if (windowSize.width > DEVICE_PARAMS.tablet.width) {
       setStandartCardLength({
-        desktop: standartCardLength.tablet + 2,
-        tablet: standartCardLength.tablet + 2,
-        mobile: standartCardLength.tablet + 2,
+        desktop: standartCardLength.tablet
+        + DEVICE_PARAMS.tablet.movies.more,
+        tablet: standartCardLength.tablet
+        + DEVICE_PARAMS.tablet.movies.more,
+        mobile: standartCardLength.tablet
+        + DEVICE_PARAMS.tablet.movies.more,
       });
     } else {
       setStandartCardLength({
-        desktop: standartCardLength.mobile + 2,
-        tablet: standartCardLength.mobile + 2,
-        mobile: standartCardLength.mobile + 2,
+        desktop: standartCardLength.mobile
+        + DEVICE_PARAMS.mobile.movies.more,
+        tablet: standartCardLength.mobile
+        + DEVICE_PARAMS.mobile.movies.more,
+        mobile: standartCardLength.mobile
+        + DEVICE_PARAMS.mobile.movies.more,
       });
     }
   };
 
   useEffect(() => {
-    if (windowSize.width > 1279) {
+    if (windowSize.width > DEVICE_PARAMS.desktop.width) {
       setCardLength(standartCardLength.desktop);
-    } else if (windowSize.width > 479) {
+    } else if (windowSize.width > DEVICE_PARAMS.tablet.width) {
       setCardLength(standartCardLength.tablet);
     } else {
       setCardLength(standartCardLength.mobile);
@@ -84,11 +98,9 @@ function MoviesCardList({
         {isLoading && <Preloader />}
         {((isMovies && isNotFound && !isLoading && !isErrorFound)
         || (isSavedMovies && isNotFound && !isLoading))
-        && 'Ничего не найдено'}
+        && NOT_FOUND_ERROR_MESSAGE}
         {!isMovies && !isSavedMovies && isErrorFound && !isLoading
-        && `Во время запроса произошла ошибка.
-        Возможно, проблема с соединением или сервер недоступен.
-        Подождите немного и попробуйте ещё раз.`}
+        && REQUEST_ERROR_MESSAGE}
         {(isMovies && !isLoading && !isNotFound && !isErrorFound)
         || (isSavedMovies && !isLoading && !isNotFound)
           ? movies.slice(0, cardLength).map((el) => (

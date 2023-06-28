@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
+import {
+  INPUT_SEARCH_ERROR,
+} from '../../utils/constants';
 
 function SearchForm({
   handleSearchSubmit,
@@ -24,7 +27,7 @@ function SearchForm({
     e.preventDefault();
 
     if (!/[a-zA-Z0-9а-яёА-ЯЁ]/gi.test(inputValue)) {
-      setErrorText('Нужно ввести ключевое слово');
+      setErrorText(INPUT_SEARCH_ERROR);
     } else {
       setErrorText('');
       handleSearchSubmit(inputValue, isShortMovies);

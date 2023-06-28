@@ -1,6 +1,5 @@
 import { checkResponse } from './MainApi';
-
-const BASE_URL = 'https://api.nomoreparties.co/beatfilm-movies';
+import { BASE_URL } from './constants';
 
 export default async function getMovies() {
   const request = await fetch(BASE_URL, {

@@ -1,4 +1,11 @@
 import { useCallback, useState } from 'react';
+import {
+  NAME_ERROR_VALIDATION,
+  NAME_LENGTH_ERROR_VALIDATION,
+  NAME_SPACE_ERROR_VALIDATION,
+  EMAIL_REGEX,
+  EMAIL_FORMAT_ERROR_VALIDATION,
+} from '../utils/constants';
 
 export function useForm() {
   const [values, setValues] = useState({});
@@ -35,13 +42,13 @@ export function useFormWithValidation() {
       const minLength = 2;
 
       if (isValidFormatName === false) {
-        setErrors({ ...errors, [name]: 'Разрешены: латиница, кириллица, пробел, дефис.' });
+        setErrors({ ...errors, [name]: NAME_ERROR_VALIDATION });
         setIsValidNameInput(false);
       } else if (value.length < minLength) {
-        setErrors({ ...errors, [name]: 'Минимум 2 символа.' });
+        setErrors({ ...errors, [name]: NAME_LENGTH_ERROR_VALIDATION });
         setIsValidNameInput(false);
       } else if (spaceErrorName === true) {
-        setErrors({ ...errors, [name]: 'Введите ключевое слово.' });
+        setErrors({ ...errors, [name]: NAME_SPACE_ERROR_VALIDATION });
         setIsValidNameInput(false);
       } else {
         setErrors({ ...errors, [name]: '' });
@@ -52,11 +59,10 @@ export function useFormWithValidation() {
     }
 
     if (name === 'email') {
-      const regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-      const isValidFormatEmail = regexEmail.test(value);
+      const isValidFormatEmail = EMAIL_REGEX.test(value);
 
       if (isValidFormatEmail === false) {
-        setErrors({ ...errors, [name]: 'Почта должна быть формата pochta@yandex.ru.' });
+        setErrors({ ...errors, [name]: EMAIL_FORMAT_ERROR_VALIDATION });
         setIsValidEmailInput(false);
       } else {
         setErrors({ ...errors, [name]: target.validationMessage });

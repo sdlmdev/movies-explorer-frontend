@@ -25,6 +25,12 @@ import {
   deleteMovie,
 } from '../../utils/MainApi';
 import getMovies from '../../utils/MoviesApi';
+import {
+  REGISTER_ERROR_MESSAGE,
+  LOGIN_ERROR_MESSAGE,
+  USER_DATA_ERROR_MESSAGE,
+  USER_DATA_SUCCESS_MESSAGE,
+} from '../../utils/constants';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -52,14 +58,13 @@ function App() {
     setIsLoading(true);
     try {
       const newUserData = await updateUser(email, name);
-
       setCurrentUser(newUserData);
       setIsSuccessUpdate(true);
-      setUpdateUserStatus('Данные успешно изменены');
+      setUpdateUserStatus(USER_DATA_SUCCESS_MESSAGE);
     } catch (err) {
       console.log(err);
       setIsSuccessUpdate(false);
-      setUpdateUserStatus('При обновлении данных произошла ошибка');
+      setUpdateUserStatus(USER_DATA_ERROR_MESSAGE);
     } finally {
       setIsLoading(false);
     }
@@ -127,7 +132,7 @@ function App() {
       navigate('/movies');
     } catch (err) {
       console.log(err);
-      setLoginStatus('При авторизации возникла ошибка');
+      setLoginStatus(LOGIN_ERROR_MESSAGE);
     } finally {
       setIsLoading(false);
     }
@@ -143,7 +148,7 @@ function App() {
       navigate('/movies');
     } catch (err) {
       console.log(err);
-      setRegistrationStatus('При регистрации возникла ошибка');
+      setRegistrationStatus(REGISTER_ERROR_MESSAGE);
     } finally {
       setIsLoading(false);
     }
@@ -177,7 +182,8 @@ function App() {
   useEffect(() => {
     if (
       isLoggedIn
-      && (location.pathname === '/saved-movies' || location.pathname === '/movies')) {
+      && (location.pathname === '/saved-movies'
+      || location.pathname === '/movies')) {
       getMyMovies();
     }
   }, [isLoggedIn, location.pathname]);
@@ -197,8 +203,23 @@ function App() {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    if (isLoggedIn && (location.pathname === '/signup' || location.pathname === '/signin')) {
+    if (
+      isLoggedIn
+      && (location.pathname === '/signup' || location.pathname === '/signin')) {
       navigate('/');
+    }
+  }, [isLoggedIn, location.pathname]);
+
+  useEffect(() => {
+    if (
+      !isLoggedIn
+      && (location.pathname === '/signup' || location.pathname === '/signin')) {
+      setLoginStatus('');
+      setRegistrationStatus('');
+    }
+
+    if (isLoggedIn && location.pathname === '/profile') {
+      setUpdateUserStatus('');
     }
   }, [isLoggedIn, location.pathname]);
 

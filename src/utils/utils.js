@@ -1,3 +1,5 @@
+import { DURATION_SHORT_MOVIES } from './constants';
+
 export const timeConverter = (duration) => {
   const hours = Math.floor(duration / 60);
   const minuts = duration % 60;
@@ -5,7 +7,8 @@ export const timeConverter = (duration) => {
   return hours === 0 ? `${minuts}м` : minuts === 0 ? `${hours}ч` : `${hours}ч ${minuts}м`;
 };
 
-export const filterShortMovies = (movies) => movies.filter((i) => i.duration <= 40);
+export const filterShortMovies = (movies) => movies.filter((i) => i.duration
+<= DURATION_SHORT_MOVIES);
 
 export const handleFilterMovies = (movies, shortStatus, input) => {
   const filterdMovies = movies.filter((i) => {
