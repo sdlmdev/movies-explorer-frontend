@@ -21,34 +21,21 @@ function Movies({
   setIsNotFound,
   isShortMovies,
   setIsShortMovies,
-  inputValue,
-  setInputValue,
   allMovies,
 }) {
   const [filteredMovies, setFilteredMovies] = useState([]);
+  const [inputValueMovies, setInputValueMovies] = useState('');
   const films = localStorage.getItem('filteredMovies');
 
   const handleSearchSubmit = (valueInput, isShort) => {
     localStorage.setItem('inputValue', valueInput);
-    setInputValue(valueInput);
+
     if (allMovies !== null && allMovies.length > 0) {
       const moviesList = handleFilterMovies(allMovies, isShort, valueInput);
       localStorage.setItem('filteredMovies', JSON.stringify(moviesList));
       setFilteredMovies(moviesList);
     }
-
-    if (filteredMovies.length === 0) {
-      setIsNotFound(true);
-    } else {
-      setIsNotFound(false);
-    }
   };
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      setInputValue(localStorage.getItem('inputValue') || '');
-    }
-  }, []);
 
   useEffect(() => {
     if (isLoggedIn && films) {
@@ -59,39 +46,42 @@ function Movies({
   }, [isLoggedIn]);
 
   useEffect(() => {
-    if (isLoggedIn && (allMovies !== null && allMovies.length > 0)
-      && (inputValue !== null && inputValue.length > 0)) {
+    if (isLoggedIn
+    && (allMovies !== null && allMovies.length > 0)
+    && (inputValueMovies !== null && inputValueMovies.length > 0)) {
       if (isShortMovies) {
-        const shortMovies = handleFilterMovies(allMovies, isShortMovies, inputValue);
+        const shortMovies = handleFilterMovies(allMovies, isShortMovies, inputValueMovies);
 
-        localStorage.setItem('inputValue', inputValue);
+        localStorage.setItem('inputValue', inputValueMovies);
         setFilteredMovies(filterShortMovies(shortMovies));
 
         if (shortMovies !== null && shortMovies.length > 0) {
           localStorage.setItem('filteredMovies', JSON.stringify(shortMovies));
         } else {
-          localStorage.setItem('filteredMovies', JSON.stringify([]));
+          localStorage.setItem('filteredMovies', '[]');
         }
       } else {
-        setFilteredMovies(handleFilterMovies(allMovies, isShortMovies, inputValue));
-        localStorage.setItem('filteredMovies', JSON.stringify(handleFilterMovies(allMovies, isShortMovies, inputValue)));
+        setFilteredMovies(handleFilterMovies(allMovies, isShortMovies, inputValueMovies));
+        localStorage.setItem(
+          'filteredMovies',
+          JSON.stringify(handleFilterMovies(allMovies, isShortMovies, inputValueMovies)),
+        );
       }
     }
   }, [isLoggedIn, isShortMovies, allMovies]);
 
   useEffect(() => {
-    if (filteredMovies.length === 0 && (inputValue !== null && inputValue.length > 0)) {
+    if (filteredMovies.length === 0 && (inputValueMovies !== null && inputValueMovies.length > 0)) {
       setIsNotFound(true);
     } else {
       setIsNotFound(false);
     }
   }, [filteredMovies]);
 
-  useEffect(() => {
-    if (!isLoggedIn) {
-      setFilteredMovies([]);
-    }
-  }, [isLoggedIn]);
+  useEffect(() => () => {
+    setFilteredMovies([]);
+    setInputValueMovies('');
+  }, []);
 
   return (
     <>
@@ -103,8 +93,8 @@ function Movies({
           handleSearchSubmit={handleSearchSubmit}
           isShortMovies={isShortMovies}
           setIsShortMovies={setIsShortMovies}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
+          inputValue={inputValueMovies}
+          setInputValue={setInputValueMovies}
           location={location}
         />
         <MoviesCardList
@@ -142,15 +132,12 @@ Movies.propTypes = {
   setIsNotFound: PropTypes.func.isRequired,
   isShortMovies: PropTypes.bool.isRequired,
   setIsShortMovies: PropTypes.func.isRequired,
-  inputValue: PropTypes.string,
-  setInputValue: PropTypes.func.isRequired,
   allMovies: PropTypes.array,
 };
 
 Movies.defaultProps = {
   allMovies: [],
   savedMovies: [],
-  inputValue: undefined,
 };
 
 export default Movies;

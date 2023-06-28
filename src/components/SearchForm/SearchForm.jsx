@@ -36,11 +36,16 @@ function SearchForm({
   };
 
   useEffect(() => {
-    if (localStorage.getItem('inputValue') !== null && location.pathname === '/movies') {
-      setInputValue(inputValue);
+    const valueInput = localStorage.getItem('inputValue');
+
+    if (valueInput !== null
+    && valueInput.length > 0
+    && location.pathname === '/movies') {
+      setInputValue(valueInput);
     } else {
       setInputValue('');
     }
+
     if (localStorage.getItem('isShortMovies') === 'true') {
       setIsShortMovies(true);
     } else {

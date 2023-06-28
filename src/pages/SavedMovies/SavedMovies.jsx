@@ -21,18 +21,15 @@ function SavedMovies({
   isSavedMovies,
   savedMovies,
   setSavedMovies,
-  isChangeSavedCards,
   isShortMovies,
   setIsShortMovies,
-  inputValue,
-  setInputValue,
 }) {
   const [filteredSavedMovies, setFilteredSavedMovies] = useState([]);
+  const [inputValueSavedMovies, setInputValueSavedMovies] = useState('');
 
   const handleSearchSubmit = (valueInput, isShort) => {
     setIsLoading(true);
     try {
-      setInputValue(valueInput);
       const newFilteredMovies = handleFilterMovies(savedMovies, isShort, valueInput);
       setFilteredSavedMovies(newFilteredMovies);
     } catch (err) {
@@ -53,19 +50,23 @@ function SavedMovies({
       setFilteredSavedMovies(savedMovies);
       setIsNotFound(false);
     }
-  }, [savedMovies, isChangeSavedCards]);
+  }, [savedMovies]);
 
   useEffect(() => {
-    if (savedMovies.length > 0 && inputValue) {
+    if (savedMovies.length > 0 && inputValueSavedMovies && inputValueSavedMovies.length > 0) {
       if (isShortMovies) {
-        const shortMovies = handleFilterMovies(savedMovies, isShortMovies, inputValue);
+        const shortMovies = handleFilterMovies(savedMovies, isShortMovies, inputValueSavedMovies);
 
         setFilteredSavedMovies(filterShortMovies(shortMovies));
       } else {
-        setFilteredSavedMovies(handleFilterMovies(savedMovies, isShortMovies, inputValue));
+        setFilteredSavedMovies(handleFilterMovies(
+          savedMovies,
+          isShortMovies,
+          inputValueSavedMovies,
+        ));
       }
     }
-    if (savedMovies.length > 0 && !inputValue) {
+    if (savedMovies.length > 0 && !inputValueSavedMovies) {
       if (isShortMovies) {
         setFilteredSavedMovies(filterShortMovies(savedMovies));
       } else {
@@ -82,11 +83,10 @@ function SavedMovies({
     }
   }, [filteredSavedMovies]);
 
-  useEffect(() => {
-    if (!isLoggedIn) {
-      setFilteredSavedMovies([]);
-    }
-  }, [isLoggedIn]);
+  useEffect(() => () => {
+    setFilteredSavedMovies([]);
+    setInputValueSavedMovies('');
+  }, []);
 
   return (
     <>
@@ -98,8 +98,8 @@ function SavedMovies({
           handleSearchSubmit={handleSearchSubmit}
           isShortMovies={isShortMovies}
           setIsShortMovies={setIsShortMovies}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
+          inputValue={inputValueSavedMovies}
+          setInputValue={setInputValueSavedMovies}
           location={location}
         />
         <MoviesCardList
@@ -138,16 +138,12 @@ SavedMovies.propTypes = {
   isSavedMovies: PropTypes.bool.isRequired,
   savedMovies: PropTypes.array.isRequired,
   setSavedMovies: PropTypes.func,
-  isChangeSavedCards: PropTypes.bool.isRequired,
   isShortMovies: PropTypes.bool.isRequired,
   setIsShortMovies: PropTypes.func.isRequired,
-  inputValue: PropTypes.string,
-  setInputValue: PropTypes.func.isRequired,
 };
 
 SavedMovies.defaultProps = {
   setSavedMovies: undefined,
-  inputValue: undefined,
 };
 
 export default SavedMovies;

@@ -11,7 +11,6 @@ export const handleFilterMovies = (movies, shortStatus, input) => {
   const filterdMovies = movies.filter((i) => {
     const { nameRU, nameEN } = i;
     const lowercaseQuery = input.toLowerCase();
-
     return (
       nameRU.toLowerCase().includes(lowercaseQuery)
       || nameEN.toLowerCase().includes(lowercaseQuery)

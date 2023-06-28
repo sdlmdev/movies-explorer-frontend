@@ -37,11 +37,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isErrorFound, setIsErrorFound] = useState(false);
   const [isNotFound, setIsNotFound] = useState(false);
-  const [isChangeSavedCards, setIsChangeSavedCards] = useState(false);
   const [updateUserStatus, setUpdateUserStatus] = useState('');
   const [isSuccessUpdate, setIsSuccessUpdate] = useState(false);
   const [isShortMovies, setIsShortMovies] = useState(false);
-  const [inputValue, setInputValue] = useState('');
   const [allMovies, setAllMovies] = useState([]);
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
@@ -89,8 +87,6 @@ function App() {
     try {
       await deleteMovie(card._id);
 
-      setIsChangeSavedCards(!isChangeSavedCards);
-
       const newSavedMovies = savedMovies.filter((i) => i.movieId !== card.movieId);
       setSavedMovies(newSavedMovies);
     } catch (err) {
@@ -101,8 +97,6 @@ function App() {
   const handleSaveMovie = async (card) => {
     try {
       const film = await saveMovie(card);
-
-      setIsChangeSavedCards(!isChangeSavedCards);
 
       setSavedMovies([...savedMovies, film]);
     } catch (err) {
@@ -181,7 +175,9 @@ function App() {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (
+      isLoggedIn
+      && (location.pathname === '/saved-movies' || location.pathname === '/movies')) {
       getMyMovies();
     }
   }, [isLoggedIn, location.pathname]);
@@ -265,8 +261,6 @@ function App() {
                 savedMovies={savedMovies}
                 isShortMovies={isShortMovies}
                 setIsShortMovies={setIsShortMovies}
-                inputValue={inputValue}
-                setInputValue={setInputValue}
                 allMovies={allMovies}
               />
             )}
@@ -289,11 +283,8 @@ function App() {
                 handleSaveMovie={handleSaveMovie}
                 isSavedMovies={isSavedMovies}
                 savedMovies={savedMovies}
-                isChangeSavedCards={isChangeSavedCards}
                 isShortMovies={isShortMovies}
                 setIsShortMovies={setIsShortMovies}
-                inputValue={inputValue}
-                setInputValue={setInputValue}
               />
             )}
           />
