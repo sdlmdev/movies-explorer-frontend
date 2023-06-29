@@ -17,5 +17,9 @@ module.exports = {
     'react',
   ],
   rules: {
+    'no-nested-ternary': 'off',
+    'react/forbid-prop-types': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'no-underscore-dangle': 'off',
   },
 };

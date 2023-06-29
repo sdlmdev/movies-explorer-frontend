@@ -17,7 +17,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build --repo https://github.com/sdlmdev/movies-explorer-frontend",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -31,11 +31,16 @@
   .header-popup__items {
     list-style-type: none;
     padding: 0;
-    margin: 159px 0 621px;
+    margin: 159px 0 0;
+    height: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
     row-gap: 28px;
+  }
+
+  .header-popup__items li:last-child {
+    margin-bottom: 25px;
   }
 
   .header-popup__items_link {
@@ -53,12 +58,17 @@
 
   .header-popup__profile-link {
     display: flex;
+    margin-bottom: 90px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .header-popup__items {
-    margin: 144px 0 444px;
+    margin: 144px 0 0;
     row-gap: 24px;
+  }
+
+  .header-popup__profile-link {
+    margin-bottom: 46px;
   }
 }

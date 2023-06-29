@@ -11,6 +11,7 @@
   margin: 0 auto 80px;
   padding: 0;
   width: 100%;
+  min-height: 271px;
 }
 
 .cards__button {
@@ -33,6 +34,10 @@
   opacity: .7;
 }
 
+.cards__list_error {
+  text-align: center;
+}
+
 @media screen and (max-width: 920px) {
   .cards {
     padding: 0 30px 80px;
@@ -40,12 +45,17 @@
   .cards__list {
     grid-template-columns: repeat(auto-fit, 339px);
     gap: 36px 30px;
+    min-height: 258px;
   }
 }
 
 @media screen and (max-width: 767.5px) {
   .cards__list {
     grid-template-columns: repeat(auto-fit, 300px);
+  }
+
+  .cards__list {
+    min-height: 236px;
   }
 }
 

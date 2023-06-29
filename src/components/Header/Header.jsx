@@ -25,7 +25,7 @@ function Header({ isLoggedIn }) {
         <Link to="/" className="header__logo logo" title="На главную">
           <img src={logo} alt="На главную" />
         </Link>
-        {!isLoggedIn ? (
+        {isLoggedIn === false ? (
           <nav>
             <ul className="header__list">
               <li>
@@ -73,11 +73,7 @@ function Header({ isLoggedIn }) {
 }
 
 Header.propTypes = {
-  isLoggedIn: PropTypes.bool,
-};
-
-Header.defaultProps = {
-  isLoggedIn: false,
+  isLoggedIn: PropTypes.bool.isRequired,
 };
 
 export default Header;
