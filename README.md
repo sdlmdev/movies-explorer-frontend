@@ -22,6 +22,11 @@
 * [Репозиторий Api](https://github.com/sdlmdev/movies-explorer-api)
 * [Проект](https://sdlmdev.movies.nomoreparties.sbs)
 
+## Установка и запуск проекта:
+* Клонировать репозиторий: `git clone https://github.com/sdlmdev/movies-explorer-frontend`
+* Установить зависимости: `npm install`
+* Запустить: `npm run start`
+
 ### Роуты
 <table>
   <thead>
