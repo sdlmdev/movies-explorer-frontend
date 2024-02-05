@@ -11,7 +11,7 @@
 
 ## Технологии:
 * HTML5
-* CCS3
+* CSS3
 * JavaScript
 * React
 * Адаптивная верстка
