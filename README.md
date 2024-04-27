@@ -1,15 +1,17 @@
-# Frontend для дипломного проекта курса «Веб-разработчик» от «Яндекс Практикум».
+# Frontend для дипломного проекта курса «Веб-разработчик» от «Яндекс Практикум»
 
 Проект-портфолио, где пользователи могут регистрироваться и авторизироваться, искать фильмы и сохранять их в избранное.
 
 ## Функциональность
+
 * Регистрация и авторизация пользователей
 * Поиск фильмов по ключевым словам
 * Фильтрация фильмов по длительности
 * Редактирование профиля
 * Сохрание фильмов в избранное
 
-## Технологии:
+## Технологии
+
 * HTML5
 * CSS3
 * JavaScript
@@ -19,16 +21,19 @@
 * Grid Layout
 
 ## Ссылки
-* [Макет](https://www.figma.com/file/QPOwI2AgQe2uRB7UzNfUy1/Diploma?type=design&node-id=932-3407&t=9HYdW2QUldFwAG1s-0)
-* [Репозиторий Api](https://github.com/sdlmdev/movies-explorer-api)
-* [Проект](https://sdlmdev.movies.nomoreparties.sbs)
 
-## Установка и запуск проекта:
+* [Макет](https://www.figma.com/file/QPOwI2AgQe2uRB7UzNfUy1/Diploma?type=design&node-id=932-3407&t=9HYdW2QUldFwAG1s-0)
+* [Репозиторий Backend](https://github.com/sdlmdev/movies-explorer-api)
+* [Проект](http://movies.sdlmdev.site/)
+
+## Установка и запуск проекта
+
 * Клонировать репозиторий: `git clone https://github.com/sdlmdev/movies-explorer-frontend`
 * Установить зависимости: `npm install`
 * Запустить: `npm run start`
 
 ### Роуты
+
 <table>
   <thead>
     <tr>

@@ -14,7 +14,7 @@ export const NAME_SPACE_ERROR_VALIDATION = 'Введите ключевое сл
 export const EMAIL_FORMAT_ERROR_VALIDATION = 'Почта должна быть формата pochta@yandex.ru.';
 export const EMAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 export const BASE_URL = 'https://api.nomoreparties.co/beatfilm-movies';
-export const API_URL = 'https://api.sdlmdev.movies.nomoredomains.monster';
+export const API_URL = 'https://movies.api.sdlmdev.site';
 export const DEVICE_PARAMS = {
   desktop: {
     width: 1279,
