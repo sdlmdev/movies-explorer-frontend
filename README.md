@@ -20,6 +20,24 @@
 * Flexbox
 * Grid Layout
 
+Проект-портфолио, где пользователи могут регистрироваться и авторизироваться, искать фильмы и сохранять их в избранное.
+
+## Функциональность
+* Регистрация и авторизация пользователей
+* Поиск фильмов по ключевым словам
+* Фильтрация фильмов по длительности
+* Редактирование профиля
+* Сохрание фильмов в избранное
+
+## Технологии:
+* HTML5
+* CSS3
+* JavaScript
+* React
+* Адаптивная верстка
+* Flexbox
+* Grid Layout
+
 ## Ссылки
 
 * [Макет](https://www.figma.com/file/QPOwI2AgQe2uRB7UzNfUy1/Diploma?type=design&node-id=932-3407&t=9HYdW2QUldFwAG1s-0)
@@ -28,6 +46,11 @@
 
 ## Установка и запуск проекта
 
+* Клонировать репозиторий: `git clone https://github.com/sdlmdev/movies-explorer-frontend`
+* Установить зависимости: `npm install`
+* Запустить: `npm run start`
+
+## Установка и запуск проекта:
 * Клонировать репозиторий: `git clone https://github.com/sdlmdev/movies-explorer-frontend`
 * Установить зависимости: `npm install`
 * Запустить: `npm run start`
